@@ -26,6 +26,7 @@ class Config(model.Base, model.ConfigAuth):
   salt = ndb.StringProperty(default=util.uuid())
   trusted_hosts = ndb.StringProperty(repeated=True, verbose_name='Trusted Hosts')
   verify_email = ndb.BooleanProperty(default=True, verbose_name='Verify user emails')
+  yandex_metrika_counter_number = ndb.StringProperty(default='', verbose_name='Counter number')
 
   @property
   def has_anonymous_recaptcha(self):
@@ -59,6 +60,7 @@ class Config(model.Base, model.ConfigAuth):
     'salt': fields.String,
     'trusted_hosts': fields.List(fields.String),
     'verify_email': fields.Boolean,
+    'yandex_metrika_counter_number': fields.String,
   }
 
   FIELDS.update(model.Base.FIELDS)

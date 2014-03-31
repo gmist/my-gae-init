@@ -54,6 +54,7 @@ class ConfigUpdateForm(flask_wtf.FlaskForm):
   salt = wtforms.StringField(model.Config.salt._verbose_name, [wtforms.validators.optional()], filters=[util.strip_filter])
   trusted_hosts = wtforms.StringField(model.Config.trusted_hosts._verbose_name, [wtforms.validators.optional()], description='Comma separated: 127.0.0.1, example.com, etc')
   verify_email = wtforms.BooleanField(model.Config.verify_email._verbose_name)
+  yandex_metrika_counter_number = wtforms.StringField(model.Config.yandex_metrika_counter_number._verbose_name, filters=[util.strip_filter])
 
 
 @app.route('/admin/config/', methods=['GET', 'POST'])
